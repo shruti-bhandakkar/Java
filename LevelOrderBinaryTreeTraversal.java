@@ -13,15 +13,15 @@ class Node {
 public class LevelOrderBinaryTreeTraversal {
 
     static Node root;
-    private ArrayList<Integer> levelOrderData;
+    private static ArrayList<Integer> levelOrderData;
 
     public static void main(String[] args) {
         LevelOrderBinaryTreeTraversal tree = new LevelOrderBinaryTreeTraversal();
         tree.root = new Node(1);
-        tree.root.left = new Node(2);
-        tree.root.right = new Node(3);
-        tree.root.left.left = new Node(4);
-        tree.root.left.right = new Node(5);
+        tree.root.left = new Node(4);
+        tree.root.right = new Node(5);
+        tree.root.left.left = new Node(2);
+        tree.root.left.right = new Node(3);
         tree.root.right.left = new Node(6);
         tree.root.right.right = new Node(7);
 
@@ -34,7 +34,7 @@ public class LevelOrderBinaryTreeTraversal {
         if(node == null)
             return;
 
-        Queue<Integer> q = new LinkedList<>();
+        Queue<Node> q = new LinkedList<>();
         q.add(root);
 
         while(!q.isEmpty()) {
@@ -46,5 +46,9 @@ public class LevelOrderBinaryTreeTraversal {
                 q.add(current.right);
             q.remove();
         }
+    }
+
+    private void levelOrderRecursive(Node node, int level) {
+        
     }
 }
